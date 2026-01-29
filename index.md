@@ -1,24 +1,17 @@
-# Benvingut al meu catàleg
+# Catálogo de componentes para Adobe AEM
 
-Aixo es un test amb Adobe EDS.
+Aquí se mostrará información básica o algún componente chulillo.
 
-## Características
+---
 
-- Fàcil de mantenir
-- Rápida configuració
-- Contingut en markdown
-```
+## Blocks (header)
 
-### 3. Estructura de archivos recomendada:
-```
-aem-catalog-cx/
-├── fstab.yaml
-├── head.html
-├── index.md          
-├── 404.md            
-├── blocks/
-├── scripts/
-│   └── scripts.js
-└── styles/
-└── styles.css
-```
+![Header](blocks/header/header.png)
+
+## Blocks (hero)
+
+![Hero Banner](blocks/hero/hero.png)
+
+## Blocks (cards)
+
+![Cards](blocks/cards/cards.png)

@@ -1,0 +1,344 @@
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-color: #e94560;
+  --accent-light: #ff6b8a;
+  --text-primary: #2d2d2d;
+  --text-secondary: #666;
+  --bg-primary: #fafafa;
+  --bg-card: #ffffff;
+  --border-color: #e5e5e5;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-accent: 0 4px 20px rgba(233, 69, 96, 0.2);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  --max-width: 1200px;
+  --nav-height: 80px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+header nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+}
+
+header .logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--primary-color);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+header .logo::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-color);
+  transition: width var(--transition-base);
+}
+
+header .logo:hover::after {
+  width: 100%;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  min-height: calc(100vh - var(--nav-height) - 200px);
+}
+
+main > div:first-child {
+  text-align: center;
+  padding: var(--spacing-xl) 0;
+  animation: fadeInUp 0.8s var(--transition-base);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--primary-color);
+  margin: 0 0 var(--spacing-md);
+  letter-spacing: -0.03em;
+  position: relative;
+  display: inline-block;
+}
+
+h1::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+  border-radius: 2px;
+}
+
+main > div:first-child > p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  font-weight: 300;
+  animation: fadeInUp 0.8s var(--transition-base) 0.1s backwards;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-color) 20%,
+    var(--border-color) 80%,
+    transparent
+  );
+  margin: var(--spacing-xl) 0;
+  opacity: 0;
+  animation: fadeInUp 0.8s var(--transition-base) 0.2s backwards;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+  letter-spacing: -0.02em;
+  position: relative;
+  padding-left: var(--spacing-sm);
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+main img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-slow);
+  animation: scaleIn 0.6s var(--transition-base);
+  display: block;
+  margin: var(--spacing-md) 0;
+}
+
+main img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: var(--shadow-accent);
+}
+
+main > div {
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInUp 0.8s var(--transition-base);
+}
+
+main > div:nth-child(3) { animation-delay: 0.1s; }
+main > div:nth-child(4) { animation-delay: 0.2s; }
+main > div:nth-child(5) { animation-delay: 0.3s; }
+main > div:nth-child(6) { animation-delay: 0.4s; }
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--accent-light);
+}
+
+a:not(.logo)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width var(--transition-base);
+}
+
+a:not(.logo):hover::after {
+  width: 100%;
+}
+
+footer {
+  background: var(--primary-color);
+  color: white;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+main img[src*="blocks/"] {
+  background: linear-gradient(
+    135deg,
+    #f5f5f5 0%,
+    #e8e8e8 50%,
+    #f5f5f5 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+  }
+
+  header nav {
+    padding: var(--spacing-sm);
+  }
+
+  main {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  h1::before {
+    top: -15px;
+    width: 40px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
