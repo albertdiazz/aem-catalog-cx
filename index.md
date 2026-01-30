@@ -13,5 +13,3 @@ Aquí se mostrará información básica o algún componente chulillo.
 ![Hero Banner](blocks/hero/hero.png)
 
 ## Blocks (cards)
-
-![Cards](blocks/cards/cards.png)
